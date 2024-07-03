@@ -1,0 +1,15 @@
+QUEUE Explanation:
+Singly Linked List: Implements a singly linked list where each node points to the next node in the sequence.
+
+Singly Circular Linked List: Similar to a singly linked list but the last node points back to the first node, forming a circular structure.
+
+Doubly Linked List: Each node contains references to both the next and previous nodes, allowing traversal in both directions.
+
+Doubly Circular Linked List: Combines features of both doubly linked list and circular linked list, where both the first and last nodes point to each other, forming a circular structure.
+
+STACK: Implements basic stack operations (push, pop, peek) using a Python list. It demonstrates how to add elements, remove elements, and check the top element of the stack.
+
+Linked List: Implements a singly linked list (add_at_head, add_at_tail, delete_at_head, print_list). It allows adding nodes at the head or tail, deleting nodes from the head, and printing the entire list.
+
+Binary Tree: Defines a binary tree structure (TreeNode and BinaryTree) and implements recursive traversal methods (inorder_traversal, preorder_traversal, postorder_traversal). Each traversal method prints nodes in the specified order.
+
