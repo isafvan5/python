@@ -1,0 +1,66 @@
+class ListNode:
+    def __init__(self, value=0, prev=None, next=None):
+        self.value = value
+        self.prev = prev
+        self.next = next
+
+class DoublyCircularLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def is_empty(self):
+        return self.head is None
+
+    def add_at_head(self, value):
+        new_node = ListNode(value)
+        if self.head is None:
+            new_node.prev = new_node  # Circular reference to itself
+            new_node.next = new_node  # Circular reference to itself
+            self.head = new_node
+        else:
+            new_node.next = self.head
+            new_node.prev = self.head.prev
+            self.head.prev.next = new_node
+            self.head.prev = new_node
+            self.head = new_node
+
+    def add_at_tail(self, value):
+        new_node = ListNode(value)
+        if self.head is None:
+            new_node.prev = new_node  # Circular reference to itself
+            new_node.next = new_node  # Circular reference to itself
+            self.head = new_node
+        else:
+            new_node.next = self.head
+            new_node.prev = self.head.prev
+            self.head.prev.next = new_node
+            self.head.prev = new_node
+
+    def delete_at_head(self):
+        if self.head:
+            if self.head.next == self.head:
+                self.head = None
+            else:
+                self.head.prev.next = self.head.next
+                self.head.next.prev = self.head.prev
+                self.head = self.head.next
+
+    def print_list(self):
+        if self.head:
+            current = self.head
+            while True:
+                print(current.value, end=" -> ")
+                current = current.next
+                if current == self.head:
+                    break
+        print("None")
+
+# Example usage for Doubly Circular Linked List:
+if __name__ == '__main__':
+    doubly_circular_linked_list = DoublyCircularLinkedList()
+    doubly_circular_linked_list.add_at_head(10)
+    doubly_circular_linked_list.add_at_tail(20)
+    doubly_circular_linked_list.add_at_tail(30)
+    doubly_circular_linked_list.print_list()  # Output: 10 -> 20 -> 30 -> None
+    doubly_circular_linked_list.delete_at_head()
+    doubly_circular_linked_list.print_list()  # Output: 20 -> 30 -> None
