@@ -1,0 +1,29 @@
+# Function to generate Fibonacci sequence using a loop
+def fibonacci_loop(n):
+    fib_sequence = [0, 1]
+    while len(fib_sequence) < n:
+        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
+    return fib_sequence[:n]
+
+# Example usage
+number_of_terms = 10
+print(f"Fibonacci sequence up to {number_of_terms} terms: {fibonacci_loop(number_of_terms)}")
+
+################################
+
+# Function to generate nth Fibonacci number using recursion
+def fibonacci_recursive(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+
+# Function to generate Fibonacci sequence using recursion
+def fibonacci_sequence_recursive(n):
+    return [fibonacci_recursive(i) for i in range(n)]
+
+# Example usage
+number_of_terms = 10
+print(f"Fibonacci sequence up to {number_of_terms} terms: {fibonacci_sequence_recursive(number_of_terms)}")
