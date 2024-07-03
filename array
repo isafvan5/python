@@ -1,0 +1,54 @@
+
+class SimpleArray:
+    def __init__(self):
+        self.array = []
+
+    def insert(self, element, index=None):
+        if index is None:
+            # Insert at the end
+            self.array.append(element)
+        else:
+            # Insert at the specified index
+            self.array.insert(index, element)
+
+    def delete(self, index):
+        if 0 <= index < len(self.array):
+            self.array.pop(index)
+        else:
+            print("Index out of range")
+
+    def __str__(self):
+        return str(self.array)
+
+# Example usage
+
+# Integer Array
+int_array = SimpleArray()
+int_array.insert(1)
+int_array.insert(2)
+int_array.insert(3, 1)  # Insert 3 at index 1
+print("Integer Array:", int_array)
+
+# Deleting element
+int_array.delete(1)  # Delete element at index 1
+print("After Deletion:", int_array)
+
+# Float Array
+float_array = SimpleArray()
+float_array.insert(1.1)
+float_array.insert(2.2)
+float_array.insert(3.3, 1)  # Insert 3.3 at index 1
+print("Float Array:", float_array)
+
+# String Array
+str_array = SimpleArray()
+str_array.insert("hello")
+str_array.insert("world")
+str_array.insert("Python", 1)  # Insert "Python" at index 1
+print("String Array:", str_array)
+
+# Mixed Array
+mixed_array = SimpleArray()
+mixed_array.insert(1)
+mixed_array.insert(2.2)
+mixed_array.insert("Python", 1)  # Insert
